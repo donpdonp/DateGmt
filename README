@@ -1,0 +1,7 @@
+Debug test case for android:
+
+Correct output:
+2010-06-04T22:39:49+0000
+
+Observed output:
+2010-06-04T22:39:49-0800

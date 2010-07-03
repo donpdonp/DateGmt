@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -20,18 +21,18 @@ public class Start extends Activity {
 		DateFormat datePattern;
 		long offset = 1275691189000L;
 		datePattern =  new SimpleDateFormat ("yyyy-MM-dd'T'HH:mm:ssZ");
-		String zonename = "GMT";
+		String zonename = "EDT";
 		TimeZone timezone = TimeZone.getTimeZone(zonename);
 		datePattern.setTimeZone(timezone);
 		String date_str = datePattern.format(new Date(offset));
 		
         TextView t = (TextView) findViewById(R.id.t1);
         t.setText(zonename + " " + timezone);   
-        Log.i("DateGmt", zonename + " " + timezone);
+        Log.i("DateGmt", "TimeZone.getTimeZone(\""+zonename+"\") = "+ timezone);
 
         t = (TextView) findViewById(R.id.t2);
         t.setText(date_str);
-        Log.i("DateGmt", date_str);
+        Log.i("DateGmt", date_str + " Android " + Build.VERSION.RELEASE);
 
     }
 }
